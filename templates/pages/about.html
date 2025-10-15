@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+    
+{% block title %}
+    About
+{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock css %}
+
+{% block content %}
     <h1>About Me</h1>
-    <p>I am a 32 year old Army vet learning Full Stack Development to start a new carrer after graduating! In my free time I enjoy reading, watching movies, motorsports, playing videogames and hanging out with friends and family.</p>
-</body>
-</html>
+    <p>I am a 32 year old Army vet learning Full Stack Development to start a new carrer after graduating! In my free time I enjoy reading, watching movies, motorsports, playing videogames and hanging out with friends and family.</p>   
+{% endblock content %}

@@ -11,3 +11,13 @@
     - Create the static templates, img, css, and js folders
     - Create the .gitignore, README.md (optional) files
 9. Link everything to settings.py
+
+
+# Important not for DTL - Jinja
+{% %} - Basic structure for all tags
+{% block NAME_OF_THE_BLOCK %}{% endblock %} - Portion of code
+{% load static %} - Load static files
+{% extends 'filename' %} - Inheritance through htmls
+{% include 'filename' %} - Insert html code into the desired one
+{% static 'PATH_FOR_THE_FILE' %} - Load any static file (css, js, img)
+{% url 'NAME_OF_THE_URL' %} - Travel through htmls
