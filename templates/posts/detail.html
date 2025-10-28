@@ -10,9 +10,14 @@
         <h4>Subtitle: {{ detailed.subtitle }}</h4>
         <p>Body: {{ detailed.body }}</p>
         <span>Published On: {{ detailed.created_on }}</span>
+        <br>
         <span>User: {{ detailed.author }}</span>
         <br>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <span>{{ detailed.status }}</span>
+        <br>
+        {% if user.is_authenticated and user == detailed.author %}
+            <a href="{% url 'post_update' detailed.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'post_delete' detailed.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
     </div>
 {% endblock content %}

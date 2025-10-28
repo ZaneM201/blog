@@ -8,7 +8,7 @@ class Status(models.Model):
     description = models.CharField(max_length=256, help_text="Write a description about the status")
 
     def __str__(self):
-        return f"{self.name} - {self.description}"
+        return f"{self.id} - {self.name} - {self.description}"
     
 
 class Post(models.Model):
