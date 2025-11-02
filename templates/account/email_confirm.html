@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Confirm Email Address
+{% endblock title %}
+
+{% block content %}
+    <h1>Confirm Email Address</h1>
+    {% if confirmation %}
+        {% if can_confirm %}
+            <p>Please confirm that <a href="mailto:{{ confirmation.email_address.email }}">{{confirmation.email_address.email}}</a> is an email address for user</p>
+            <form action="{% url 'accout_confirm_email' confirmation %}" method="post"></form>
+
+        {% endif %}
+    {% endif %}
+{% endblock content %}

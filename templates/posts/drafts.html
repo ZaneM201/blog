@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Drafts
+{% endblock title%}
+
+{% block content %}
+    <h1>Drafts</h1>
+    <ul>
+        {% for item in draft_list %}
+        <li>
+            <div>
+                <h5>Title: {{ item.title }}</h5>
+                <p>Body: {{ item.body|truncatechars:10 }}</p>
+                <span><strong>User: {{ item.author }}</strong></span>
+                <br>
+                <span><strong>Status: {{ item.status }}</strong></span>
+                <br>
+                <span><strong>Date: {{ item.created_on }}</strong></span>
+                <br>
+                <a href="{% url 'post_detail' item.id %}">Continue Reading...</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
