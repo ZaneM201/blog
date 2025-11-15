@@ -1,9 +1,95 @@
 * {
-   font-family: Franklin Gothic; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body {
-    background-color: lightgray;
+
+.about-container {
+    background: white;
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
 }
-h1 {
-    color: blueviolet;
+
+.about-container h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about-container p {
+    color: #444;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.about-highlights {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-highlights h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.about-highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-highlights li {
+    color: #555;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+    font-size: 1.1rem;
+}
+
+.about-highlights li:last-child {
+    border-bottom: none;
+}
+
+.about-highlights li::before {
+    content: "✓ ";
+    color: #667eea;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.about-image {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.about-image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 5px solid #667eea;
+}
+
+.about-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
+}
+
+.about-footer p {
+    color: #999;
+    font-style: italic;
+    text-align: center;
 }

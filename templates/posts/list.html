@@ -1,26 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     Posts
 {% endblock title %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock css %}
+
 {% block content %}
-    <h1>Posts</h1>
-    <ul>
-        {% for item in posts %}
-        <li>
-            <div>
-                <h5>Title: {{ item.title }}</h5>
-                <p>Body: {{ item.body|truncatechars:10 }}</p>
-                <span><strong>User: {{ item.author }}</strong></span>
-                <br>
-                <span><strong>Status: {{ item.status }}</strong></span>
-                <br>
-                <span><strong>Date: {{ item.created_on }}</strong></span>
-                <br>
-                <a href="{% url 'post_detail' item.id %}">Continue Reading...</a>
+    <div class="posts-container">
+        <h1 class="posts-header">Latest Posts</h1>
+        
+        {% if posts %}
+            <ul class="posts-list">
+                {% for item in posts %}
+                <li class="post-item">
+                    <div>
+                        <h5 class="post-title">{{ item.title }}</h5>
+                        <p class="post-body">{{ item.body|truncatechars:150 }}</p>
+                        <div class="post-meta">
+                            <span><strong>Author:</strong> {{ item.author }}</span>
+                            <span><strong>Status:</strong> {{ item.status.name|title }}</span>
+                            <span><strong>Date:</strong> {{ item.created_on|date:"M d, Y" }}</span>
+                        </div>
+                        <a href="{% url 'post_detail' item.id %}" class="post-link">Continue Reading →</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="empty-state">
+                <h2>No Posts Yet</h2>
+                <p>Be the first to create a post!</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="post-link">Create New Post</a>
+                {% endif %}
             </div>
-        </li>
-        {% endfor %}
-    </ul>
+        {% endif %}
+    </div>
 {% endblock content %}

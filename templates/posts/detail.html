@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    Post Details
+    {{ detailed.title }}
 {% endblock title %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock css %}
+
 {% block content %}
-    <div>
-        <h1>Title: {{ detailed.title }}</h1>
-        <h4>Subtitle: {{ detailed.subtitle }}</h4>
-        <p>Body: {{ detailed.body }}</p>
-        <span>Published On: {{ detailed.created_on }}</span>
-        <br>
-        <span>User: {{ detailed.author }}</span>
-        <br>
-        <span>{{ detailed.status }}</span>
-        <br>
+    <div class="post-detail-container">
+        <h1 class="post-detail-title">{{ detailed.title }}</h1>
+        <h4 class="post-detail-subtitle">{{ detailed.subtitle }}</h4>
+        
+        <div class="post-detail-meta">
+            <span><strong>📅 Published On:</strong> {{ detailed.created_on|date:"F d, Y at h:i A" }}</span>
+            <span><strong>✍️ Author:</strong> {{ detailed.author }}</span>
+            <span><strong>🏷️ Status:</strong> {{ detailed.status.name|title }}</span>
+        </div>
+        
+        <p class="post-detail-body">{{ detailed.body }}</p>
+        
         {% if user.is_authenticated and user == detailed.author %}
-            <a href="{% url 'post_update' detailed.id %}" class="btn btn-primary">Edit</a>
-            <a href="{% url 'post_delete' detailed.id %}" class="btn btn-danger">Delete</a>
+            <div class="post-actions">
+                <a href="{% url 'post_update' detailed.id %}" class="btn btn-primary">✏️ Edit Post</a>
+                <a href="{% url 'post_delete' detailed.id %}" class="btn btn-danger">🗑️ Delete Post</a>
+            </div>
         {% endif %}
     </div>
 {% endblock content %}
