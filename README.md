@@ -5,6 +5,8 @@
 3. Create virtual enviroment (Windows: python -m venv venv | Mac: python3 -m venv venv)
 4. Activate venv (Windows: venv\Scripts\activate | Mac: source venv/bin/activate)
 5. Install django (pip install django)
+    - Install django allauth (pip install django-allauth)
+    - Install crispy forms/bootstrap (pip install django-crispy-forms crispy-bootstrap5)
 6. Save packages into requirements.txt file (pip freeze > requirements.txt)
 7. Creat the project (django-admin startproject config .)
 8. Finish the structure
